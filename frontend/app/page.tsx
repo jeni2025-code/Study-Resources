@@ -13,7 +13,8 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("Core Content");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/status")
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7860";
+    fetch(`${apiUrl}/api/status`)
       .then((res) => res.json())
       .then((data) => setApiStatus(`✅ Connected to ${data.service}`))
       .catch(() => setApiStatus("❌ Backend Not Connected. Please run FastAPI on port 8000."));
