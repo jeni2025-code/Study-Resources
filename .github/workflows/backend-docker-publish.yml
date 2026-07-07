@@ -2,14 +2,7 @@ name: Build and Publish Backend to GHCR
 
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - 'backend/**'
-      - '.github/workflows/backend-docker-publish.yml'
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - 'backend/**'
+    tags: [ "v*.*.*" ]
 
 env:
   REGISTRY: ghcr.io
