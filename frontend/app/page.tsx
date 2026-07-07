@@ -13,7 +13,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("Core Content");
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7860";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://jeni2025-study-resources-backend.hf.space";
     fetch(`${apiUrl}/api/status`)
       .then((res) => res.json())
       .then((data) => setApiStatus(`✅ Connected to ${data.service}`))
