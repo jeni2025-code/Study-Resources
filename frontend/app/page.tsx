@@ -5,6 +5,9 @@ import PomodoroTimer from "./components/PomodoroTimer";
 import FileUpload from "./components/FileUpload";
 import SyllabusTracker from "./components/SyllabusTracker";
 import CgpaCalculator from "./components/CgpaCalculator";
+import StudyPlanner from "./components/StudyPlanner";
+import MarksTracker from "./components/MarksTracker";
+import CommunityFeed from "./components/CommunityFeed";
 
 const TABS = ["Core Content", "Planning & Productivity", "Performance", "Community", "Smart/AI Layer"];
 
@@ -71,31 +74,48 @@ export default function Home() {
           )}
 
           {activeTab === "Planning & Productivity" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               <SyllabusTracker />
               <PomodoroTimer />
+              <div className="xl:col-span-2">
+                <StudyPlanner />
+              </div>
             </div>
           )}
 
           {activeTab === "Performance" && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-               <CgpaCalculator />
+            <div className="grid grid-cols-1 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <CgpaCalculator />
+                <MarksTracker />
+              </div>
             </div>
           )}
 
           {activeTab === "Community" && (
-            <div className="bg-white p-12 rounded-xl shadow-sm border border-gray-200 text-center">
-               <span className="text-5xl mb-4 block">💬</span>
-               <h3 className="text-2xl font-medium text-gray-700">Community Forums</h3>
-               <p className="text-gray-500 mt-2 max-w-md mx-auto">Connect with peers, join study groups, and ask questions. (Coming Soon)</p>
+            <div className="max-w-3xl mx-auto">
+              <CommunityFeed />
             </div>
           )}
 
           {activeTab === "Smart/AI Layer" && (
-             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-12 rounded-xl shadow-sm border border-blue-100 text-center">
-               <span className="text-5xl mb-4 block">✨</span>
-               <h3 className="text-2xl font-medium text-blue-900">AI Summarizer & Flashcards</h3>
-               <p className="text-blue-700 mt-2 max-w-md mx-auto">The backend is ready to integrate with LLMs to automatically generate study materials from your uploaded notes.</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <FileUpload />
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm border border-blue-100 flex flex-col justify-center">
+                <span className="text-5xl mb-4 block">✨</span>
+                <h3 className="text-2xl font-medium text-blue-900">AI Summarizer</h3>
+                <p className="text-blue-700 mt-2">Upload a PDF on the left and the AI will generate a summary of its contents automatically.</p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <div className="bg-white bg-opacity-60 p-4 rounded-xl border border-blue-100 text-center">
+                    <div className="text-2xl mb-2">📝</div>
+                    <p className="text-sm font-semibold text-blue-800">Auto Summary</p>
+                  </div>
+                  <div className="bg-white bg-opacity-60 p-4 rounded-xl border border-blue-100 text-center">
+                    <div className="text-2xl mb-2">🃏</div>
+                    <p className="text-sm font-semibold text-blue-800">Flashcards (Soon)</p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </section>
