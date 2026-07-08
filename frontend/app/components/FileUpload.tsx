@@ -26,7 +26,7 @@ export default function FileUpload() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://jeni2025-study-resources-backend.hf.space";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://jenigupta19-study-resources-backend.hf.space";
     try {
       const response = await fetch(`${apiUrl}/api/summarize`, {
         method: "POST",
